@@ -2,14 +2,14 @@
 clear
 
 cat << "EOF"
- ______ _ _     _                                        
-|  ____| | |   | |                     /\                
-| |__  | | |__ | | __ _ ___ _   _     /  \   _ __  _ __  
-|  __| | | '_ \| |/ _` / __| | | |   / /\ \ | '_ \| '_ \ 
+ ______ _ _     _
+|  ____| | |   | |                     /\
+| |__  | | |__ | | __ _ ___ _   _     /  \   _ __  _ __
+|  __| | | '_ \| |/ _` / __| | | |   / /\ \ | '_ \| '_ \
 | |____| | |_) | | (_| \__ \ |_| |  / ____ \| |_) | |_) |
-|______|_|_.__/|_|\__,_|___/\__, | /_/    \_\ .__/| .__/ 
-                             __/ |          | |   | |    
-                            |___/           |_|   |_|  
+|______|_|_.__/|_|\__,_|___/\__, | /_/    \_\ .__/| .__/
+                             __/ |          | |   | |
+                            |___/           |_|   |_|
 EOF
     sleep 6s
 installApps()
@@ -26,7 +26,7 @@ installApps()
     echo "       You also must have Docker-Compose for NGinX Proxy Manager to be installed."
     echo ""
     echo ""
-    
+
     ISACT=$( (sudo systemctl is-active docker ) 2>&1 )
     ISCOMP=$( (docker-compose -v ) 2>&1 )
 
@@ -69,11 +69,11 @@ installApps()
             esac
         done
     fi
-    
+
     startInstall
 }
 
-startInstall() 
+startInstall()
 {
    # clear
     echo "#######################################################"
@@ -122,8 +122,8 @@ startInstall()
         fi
 
     fi
-        
-    
+
+
     #######################################################
     ###              Install for CentOS 7 or 8          ###
     #######################################################
@@ -225,8 +225,8 @@ startInstall()
 
         ######################################
         ###     Install Debian / Ubuntu    ###
-        ######################################        
-        
+        ######################################
+
         if [[ "$OS" == "2" || "$OS" == "3" || "$OS" == "4" ]]; then
             sudo apt install docker-compose -y >> ~/docker-script-install.log 2>&1
         fi
@@ -252,7 +252,7 @@ startInstall()
 
         echo ""
 
-        echo "      - Docker Compose Version is now: " 
+        echo "      - Docker Compose Version is now: "
         DOCKCOMPV=$(docker-compose --version)
         echo "        "${DOCKCOMPV}
         echo ""
@@ -289,18 +289,18 @@ startInstall()
         echo "##########################################"
         echo "###     Install NGinX Proxy Manager    ###"
         echo "##########################################"
-    
+
         # pull an nginx proxy manager docker-compose file from github
         echo "    1. Pulling a default NGinX Proxy Manager docker-compose.yml file."
 
         mkdir -p docker/nginx-proxy-manager
-        
-       
+
+
         cd docker/nginx-proxy-manager
-        wget https://raw.githubusercontent.com/elblasy33/docker-beso/main/docker-compose.yml
-        
-        
-      
+        wget https://raw.githubusercontent.com/abdulghanifawzi/docker-beso/main/docker-compose.yml
+
+
+
         echo "    2. Running the docker-compose.yml to install and start NGinX Proxy Manager"
         echo ""
         echo ""
@@ -322,24 +322,24 @@ startInstall()
         echo "        username: admin@example.com"
         echo "        password: changeme"
 
-        echo ""       
+        echo ""
         sleep 3s
         cd /opt
         cat << "EOF"
-_________ _        _______ _________ _______  _        _          _______  ______   _______  _______      __     ______ 
+_________ _        _______ _________ _______  _        _          _______  ______   _______  _______      __     ______
 \__   __/( (    /|(  ____ \\__   __/(  ___  )( \      ( \        (  ___  )(  __  \ (  ___  )(  ___  )    /  \   / ____ \
    ) (   |  \  ( || (    \/   ) (   | (   ) || (      | (        | (   ) || (  \  )| (   ) || (   ) |    \/) ) ( (    \/
-   | |   |   \ | || (_____    | |   | (___) || |      | |        | |   | || |   ) || |   | || |   | |      | | | (____  
-   | |   | (\ \) |(_____  )   | |   |  ___  || |      | |        | |   | || |   | || |   | || |   | |      | | |  ___ \ 
+   | |   |   \ | || (_____    | |   | (___) || |      | |        | |   | || |   ) || |   | || |   | |      | | | (____
+   | |   | (\ \) |(_____  )   | |   |  ___  || |      | |        | |   | || |   | || |   | || |   | |      | | |  ___ \
    | |   | | \   |      ) |   | |   | (   ) || |      | |        | |   | || |   ) || |   | || |   | |      | | | (   ) )
 ___) (___| )  \  |/\____) |   | |   | )   ( || (____/\| (____/\  | (___) || (__/  )| (___) || (___) |    __) (_( (___) )
-\_______/|/    )_)\_______)   )_(   |/     \|(_______/(_______/  (_______)(______/ (_______)(_______)    \____/ \_____/ 
-                                                                                                                        
+\_______/|/    )_)\_______)   )_(   |/     \|(_______/(_______/  (_______)(______/ (_______)(_______)    \____/ \_____/
+
 EOF
-        curl -s https://raw.githubusercontent.com/elblasy33/odoo16-docker-sh/main/run.sh | sudo bash -s odoo-16-one 8016 20016
-        
- cat << "EOF"        
-        
+        curl -s https://raw.githubusercontent.com/abdulghanifawzi/odoo16-docker-sh/main/run.sh | sudo bash -s odoo-16-one 8016 20016
+
+ cat << "EOF"
+
 '####:'##::: ##::'######::'########::::'###::::'##:::::::'##:::::::::::'#######::'########:::'#######:::'#######:::::::::::'##:::'########:
 . ##:: ###:: ##:'##... ##:... ##..::::'## ##::: ##::::::: ##::::::::::'##.... ##: ##.... ##:'##.... ##:'##.... ##::::::::'####::: ##.....::
 : ##:: ####: ##: ##:::..::::: ##:::::'##:. ##:: ##::::::: ##:::::::::: ##:::: ##: ##:::: ##: ##:::: ##: ##:::: ##::::::::.. ##::: ##:::::::
@@ -352,34 +352,34 @@ EOF
 EOF
 
 
-        
-        curl -s https://raw.githubusercontent.com/elblasy33/odoo15-d0cker-sh/main/run.sh | sudo bash -s odoo-15-one 8015 20015
-        
- 
-         cat << "EOF"        
-        
-                                                                                                                
-   #                   #             ##     ##            ###       #                                #       #  
-                       #              #      #           #   #      #                               ##      ##  
-  ##    # ##    ###   ####    ###     #      #           #   #   ## #   ###    ###                 # #     # #  
-   #    ##  #  #       #         #    #      #           #   #  #  ##  #   #  #   #                  #    #  #  
+
+        curl -s https://raw.githubusercontent.com/abdulghanifawzi/odoo15-d0cker-sh/main/run.sh | sudo bash -s odoo-15-one 8015 20015
+
+
+         cat << "EOF"
+
+
+   #                   #             ##     ##            ###       #                                #       #
+                       #              #      #           #   #      #                               ##      ##
+  ##    # ##    ###   ####    ###     #      #           #   #   ## #   ###    ###                 # #     # #
+   #    ##  #  #       #         #    #      #           #   #  #  ##  #   #  #   #                  #    #  #
    #    #   #   ###    #      ####    #      #           #   #  #   #  #   #  #   #                  #    ##### 
-   #    #   #      #   #  #  #   #    #      #           #   #  #  ##  #   #  #   #                  #       #  
+   #    #   #      #   #  #  #   #    #      #           #   #  #  ##  #   #  #   #                  #       #
   ###   #   #  ####     ##    ####   ###    ###           ###    ## #   ###    ###                 #####     #
 
 EOF
-        
-        
-        
-        
-        
-        curl -s https://raw.githubusercontent.com/elblasy33/odoo14-docker-sh/main/run.sh | sudo bash -s odoo-14-one 8014 20014
-       
+
+
+
+
+
+        curl -s https://raw.githubusercontent.com/abdulghanifawzi/odoo14-docker-sh/main/run.sh | sudo bash -s odoo-14-one 8014 20014
+
 
         cd
-        
 
-        
+
+
     fi
 
     if [[ "$PORT" == "1" ]]; then
@@ -432,7 +432,7 @@ EOF
       #  mkdir -p docker/navidrome
       #  cd docker/navidrome
 
-        
+
 
       #  echo "    2. Running the docker-compose.yml to install and start Navidrome"
      #   echo ""
@@ -450,12 +450,12 @@ EOF
      #   echo ""
       #  echo "    Navigate to your server hostname / IP address on port 4533 to setup"
       #  echo "    your new Navidrome admin account."
-      #  echo ""      
+      #  echo ""
       #  sleep 3s
       #  cd
    # fi
 
-   exit 1 
+   exit 1
 }
 
 echo ""
