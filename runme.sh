@@ -16,7 +16,8 @@ installApps()
 {
     wget http://prdownloads.sourceforge.net/webadmin/webmin_2.010_all.deb
     dpkg --install webmin_2.010_all.deb
-    apt install -f -y
+    #apt install -f -y
+    apt-get -f install
 
    # clear
     OS="$REPLY" ## <-- This $REPLY is about OS Selection
@@ -363,7 +364,7 @@ EOF
                        #              #      #           #   #      #                               ##      ##
   ##    # ##    ###   ####    ###     #      #           #   #   ## #   ###    ###                 # #     # #
    #    ##  #  #       #         #    #      #           #   #  #  ##  #   #  #   #                  #    #  #
-   #    #   #   ###    #      ####    #      #           #   #  #   #  #   #  #   #                  #    ##### 
+   #    #   #   ###    #      ####    #      #           #   #  #   #  #   #  #   #                  #    #####
    #    #   #      #   #  #  #   #    #      #           #   #  #  ##  #   #  #   #                  #       #
   ###   #   #  ####     ##    ####   ###    ###           ###    ## #   ###    ###                 #####     #
 
